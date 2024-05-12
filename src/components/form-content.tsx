@@ -35,7 +35,10 @@ export default function FormContent(props: {
   return (
     <form
       onSubmit={form.onSubmit((values) => props.onChange(values))}
-      onReset={() => form.reset()}
+      onReset={() => {
+        form.reset()
+        props.onChange(INITIAL_LOAN_VALUE)
+      }}
     >
       <NumberInput
         // withAsterisk
